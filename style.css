@@ -18,7 +18,7 @@
   /* Premium LIGHT theme surfaces (branding colors above are unchanged;
      these are where those colors get applied on the page). */
   --page-bg:#FFFFFF;           /* clean white page background */
-  --alt-bg:#F7F1E4;            /* soft warm gold-tinted off-white for alternating sections */
+  --alt-bg:#FFFFFF;            /* soft warm gold-tinted off-white for alternating sections */
   --surface-card:#FFFFFF;      /* card background */
   --border-soft: rgba(201,154,75,0.25);
 
@@ -196,7 +196,7 @@ section{position:relative;}
 }
 .brand{display:flex;align-items:center;gap:12px;}
 .brand img{
-    height:100px;
+    height:180px;
     width:auto;
     object-fit:contain;
     transition:0.3s ease;
@@ -254,48 +254,113 @@ section{position:relative;}
 
 /* ---- Mobile slide-in menu: light frosted glass, per spec (never dark) ---- */
 .nav-mobile{
-  position:fixed;
-  top:0;right:0;
-  width:min(320px,86vw);
-  height:100vh;
-  height:100dvh;
-  max-width:100vw;
-  background:var(--menu-panel-bg);
-  backdrop-filter:blur(22px) saturate(160%);
-  -webkit-backdrop-filter:blur(22px) saturate(160%);
-  border-left:1px solid var(--glass-border);
-  box-shadow:-10px 0 40px rgba(20,18,16,0.08);
-  padding:120px 32px 40px;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  transform:translateX(100%);
-  transition:transform .5s var(--ease);
-  z-index:950;
-  overflow-y:auto;
+    position:fixed;
+    top:0;
+    right:0;
+    width:320px;
+    max-width:88%;
+    height:100vh;
+
+    background:rgba(255,255,255,.93);
+
+    backdrop-filter:blur(30px) saturate(180%);
+    -webkit-backdrop-filter:blur(30px) saturate(180%);
+
+    border-left:1px solid rgba(201,154,75,.18);
+
+    box-shadow:
+        -25px 0 70px rgba(0,0,0,.08);
+
+    transform:translateX(100%);
+    transition:.45s cubic-bezier(.22,.61,.36,1);
+
+    padding:120px 35px 40px;
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+    z-index:999;
 }
 .nav-mobile.open{transform:translateX(0);}
 .nav-mobile a{
-  padding:16px 6px;
-  font-family:var(--font-heading);
-  font-size:1.05rem;
-  font-weight:500;
-  border-bottom:1px solid rgba(20,18,16,0.08);
-  color:var(--text-heading);
-  transition:color .3s, padding-left .3s;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#1A1A1A;
+
+    transition:.35s;
+
+    border:none;
+
 }
-.nav-mobile a:hover,.nav-mobile a.active{color:var(--gold);padding-left:14px;}
+.nav-mobile a:hover,
+.nav-mobile a.active{
+
+    background:linear-gradient(
+        135deg,
+        rgba(201,154,75,.18),
+        rgba(233,198,128,.08)
+    );
+
+    color:#C99A4B;
+
+    transform:translateX(8px);
+
+}
+.nav-mobile a.active::after{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#C99A4B;
+
+}
 
 /* Light frosted overlay behind the menu — the page stays visible/blurred,
    never a dark scrim (Apple-style glassmorphism). */
 .nav-backdrop{
-  position:fixed;inset:0;
-  background:var(--menu-overlay-bg);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  opacity:0;visibility:hidden;transition:opacity .4s var(--ease), visibility .4s var(--ease);z-index:940;
+    position:fixed;
+    inset:0;
+
+    background:rgba(255,255,255,.35);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    opacity:0;
+    visibility:hidden;
+
+    pointer-events:none;
+
+    z-index:998;
+
+    transition:.35s;
 }
-.nav-backdrop.open{opacity:1;visibility:visible;}
+
+.nav-backdrop.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
 
 /* Body lock while the mobile menu is open */
 body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
@@ -650,12 +715,23 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
     /* Hide Desktop Navigation */
     .nav-desktop{
         display:none !important;
+        
     }
 
     /* Show Hamburger */
     .hamburger{
         display:block !important;
+        width:44px;
+        height:34px;
     }
+
+    .hamburger span{
+
+    height:3px;
+
+    border-radius:20px;
+
+}
 
     /* Header Layout */
     .site-header{
@@ -692,4 +768,123 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
         width:280px;
     }
 
+}
+/* ==========================
+   Mobile Menu Header
+========================== */
+
+.mobile-menu-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding-bottom:25px;
+
+    margin-bottom:25px;
+
+    border-bottom:1px solid rgba(201,154,75,.15);
+
+}
+
+.mobile-menu-header img{
+
+    width:90px;
+
+    height:auto;
+
+}
+
+.mobile-menu-header h3{
+
+    font-family:var(--font-heading);
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:var(--text-heading);
+
+}
+
+.mobile-menu-header h3 span{
+
+    color:var(--gold);
+
+}
+
+/* ==========================
+   Mobile Menu Close Button
+========================== */
+
+.menu-close{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(201,154,75,.12);
+
+    border:1px solid rgba(201,154,75,.25);
+
+    color:var(--gold);
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.menu-close:hover{
+
+    background:var(--gold);
+
+    color:#fff;
+
+    transform:rotate(90deg);
+
+}
+
+/* ===== Mobile Menu Close Button ===== */
+
+.menu-close{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#fff;
+    border:1px solid rgba(201,154,75,.3);
+    color:#C99A4B;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.menu-close:hover{
+    background:#C99A4B;
+    color:#fff;
+    transform:rotate(90deg);
 }

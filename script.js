@@ -27,6 +27,7 @@
   const hamburger = document.querySelector('.hamburger');
   const navMobile = document.querySelector('.nav-mobile');
   const navBackdrop = document.querySelector('.nav-backdrop');
+  const menuClose = document.querySelector('.menu-close');
 
   function closeMobileNav() {
     hamburger && hamburger.classList.remove('active');
@@ -57,6 +58,7 @@
 }
   hamburger && hamburger.addEventListener('click', toggleMobileNav);
   navBackdrop && navBackdrop.addEventListener('click', closeMobileNav);
+  menuClose && menuClose.addEventListener('click', closeMobileNav);
   document.querySelectorAll('.nav-mobile a').forEach(a => a.addEventListener('click', closeMobileNav));
   document.addEventListener("keydown", function(e){
 
@@ -67,6 +69,7 @@
     }
 
 });
+
 
   /* ------------------------------ Active Nav Highlight ------------------------------ */
   (function markActiveNav() {
