@@ -213,8 +213,7 @@
       setTimeout(() => ripple.remove(), 650);
     });
   });
-
-
+  
   /* ------------------------------ Parallax (hero bg) ------------------------------ */
   const parallaxEls = document.querySelectorAll('.parallax-layer');
   if (parallaxEls.length) {

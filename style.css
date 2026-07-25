@@ -730,409 +730,216 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
 .site-footer .brand-name{
     color:var(--text-heading) !important;
 }
-
 .site-footer .brand-name span{
     color:var(--gold) !important;
 }
-
 .site-footer .brand img{
     opacity:1;
 }
-
 .site-footer .brand{
     opacity:1;
 }
-
 .site-footer .brand img{
     filter:none;
     opacity:1;
 }
-
-
 /*=========================================
  Premium Instagram Card
 =========================================*/
-
 .insta-dropdown{
     position:relative;
 }
-
 .insta-card{
-
     position:absolute;
-
     bottom:70px;
-
     left:50%;
-
     transform:translateX(-50%) translateY(15px);
-
     width:280px;
-
     background:#fff;
-
     border-radius:18px;
-
     box-shadow:0 20px 50px rgba(0,0,0,.15);
-
     border:1px solid rgba(201,154,75,.15);
-
     overflow:hidden;
-
     opacity:0;
-
     visibility:hidden;
-
     transition:.35s ease;
-
     z-index:999;
-
 }
-
 .insta-dropdown:hover .insta-card{
-
     opacity:1;
-
     visibility:visible;
-
     transform:translateX(-50%) translateY(0);
-
 }
-
 .insta-header{
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:15px 18px;
-
     font-weight:600;
-
     border-bottom:1px solid #eee;
-
     color:#C99A4B;
-
 }
-
 .insta-account{
-
     display:flex;
-
     align-items:center;
-
     justify-content:flex-start;
-
     gap:15px;
-
     width:100%;
-
     height:auto;
-
     padding:15px 18px;
-
     text-decoration:none;
-
     transition:.3s;
-
     border:none;
-
     border-radius:0;
-
     background:transparent;
-
     color:#333;
-
 }
-
 .insta-account:hover{
-
     background:#faf7f2;
-
 }
-
 .insta-account-icon{
-
     width:46px;
-
     height:46px;
-
     border-radius:50%;
-
     background:#C99A4B;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     flex-shrink:0;
-
 }
-
 .insta-account-icon i{
-
     color:#fff;
-
     font-size:20px;
-
 }
-
 .insta-account-info{
-
     display:flex;
-
     flex-direction:column;
-
 }
-
 .insta-account-info h4{
-
     margin:0;
-
     font-size:15px;
-
     color:#222;
-
     font-weight:600;
-
 }
-
 .insta-account-info p{
-
     margin:0;
-
     font-size:15px;
-
     color:#666;
-
     font-weight:500;
-
 }
-
 /* Arrow */
-
 .insta-card::after{
-
     content:"";
-
     position:absolute;
-
     bottom:-8px;
-
     left:50%;
-
     transform:translateX(-50%) rotate(45deg);
-
     width:16px;
-
     height:16px;
-
     background:#fff;
-
 }
-
 /*=========================================
  Premium Facebook Card
 =========================================*/
-
 .facebook-dropdown{
     position:relative;
 }
-
 .facebook-card{
-
     position:absolute;
-
     bottom:55px;
-
     left:50%;
-
     transform:translateX(-50%) translateY(15px);
-
     width:280px;
-
     background:#fff;
-
     border-radius:18px;
-
     box-shadow:0 20px 50px rgba(0,0,0,.15);
-
     border:1px solid rgba(201,154,75,.15);
-
     overflow:hidden;
-
     opacity:0;
-
     visibility:hidden;
-
     transition:.35s ease;
-
     z-index:999;
-
 }
-
 .facebook-btn:hover + .facebook-card,
 .facebook-card:hover{
-
     opacity:1;
-
     visibility:visible;
-
     transform:translateX(-50%) translateY(0);
-
 }
-
 .facebook-header{
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:15px 18px;
-
     font-weight:600;
-
     border-bottom:1px solid #eee;
-
     color:#C99A4B;
-
 }
-
 .facebook-account{
-
     display:flex;
-
     align-items:center;
-
     justify-content:flex-start;
-
     gap:15px;
-
     width:100%;
-
     padding:15px 18px;
-
     text-decoration:none;
-
     color:#333;
-
     transition:.3s;
-
 }
-
 .facebook-account:hover{
-
     background:#faf7f2;
-
 }
-
 .facebook-account-icon{
-
     width:46px;
-
     height:46px;
-
     border-radius:50%;
-
     background:#C99A4B;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     flex-shrink:0;
-
 }
-
 .facebook-account-icon i{
-
     color:#fff;
-
     font-size:18px;
-
 }
-
 .facebook-account-info{
-
     display:flex;
-
     flex-direction:column;
-
 }
-
 .facebook-account-info p{
-
     margin:0;
-
     font-size:15px;
-
     color:#666;
-
     font-weight:500;
-
 }
-
 .facebook-card::after{
-
     content:"";
-
     position:absolute;
-
     bottom:-8px;
-
     left:50%;
-
     transform:translateX(-50%) rotate(45deg);
-
     width:16px;
-
     height:16px;
-
     background:#fff;
-
 }
 .facebook-btn{
-
     width:50px;
-
     height:50px;
-
     border-radius:50%;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     background:#fff;
-
     border:1px solid rgba(201,154,75,.3);
-
     color:#333;
-
     transition:.3s ease;
-
 }
-
 .facebook-btn:hover{
-
     background:#C99A4B;
-
     color:#fff;
-
     transform:translateY(-5px);
-
 }
-
 /*=========================================
  Premium LinkedIn Card
 =========================================*/
@@ -1574,4 +1381,94 @@ transform:translateY(-10px);
     .student-grid{
         grid-template-columns:1fr;
     }
+}
+
+/* ==========================================
+   COMMON CTA RESPONSIVE
+   (About + Institute + Technologies + Index)
+========================================== */
+
+@media (max-width:768px){
+
+    .cta-band{
+        margin:0;
+        padding:55px 28px;
+        border-radius:28px;
+        text-align:center;
+    }
+
+    .cta-band h2{
+        font-size:2rem;
+        line-height:1.3;
+        margin-bottom:20px;
+    }
+
+    .cta-band h2 em{
+        display:block;
+        margin-top:8px;
+    }
+
+    .cta-band p{
+        max-width:100%;
+        margin:0 auto 35px;
+        font-size:1rem;
+        line-height:1.8;
+    }
+    .cta-actions{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+    }
+    .cta-actions .btn{
+        width:100%;
+        max-width:260px;
+        justify-content:center;
+    }
+}
+/* ==========================================
+   Mobile Social Popup
+========================================== */
+@media (max-width:768px){
+    .facebook-card,
+    .insta-card,
+    .linkedin-card{
+        position:fixed;
+        left:50%;
+        top:50%;
+        bottom:auto;
+        right:auto;
+        transform:translate(-50%,-50%) scale(.95);
+        width:90%;
+        max-width:320px;
+        opacity:0;
+        visibility:hidden;
+        transition:.3s;
+        z-index:9999;
+    }
+    .facebook-card.show,
+    .insta-card.show,
+    .linkedin-card.show{
+        opacity:1;
+        visibility:visible;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    .facebook-card::after,
+    .insta-card::after,
+    .linkedin-card::after{
+        display:none;
+    }
+}
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:9998;
+}
+.popup-overlay.show{
+    opacity:1;
+    visibility:visible;
 }
