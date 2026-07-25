@@ -81,7 +81,6 @@ section{position:relative;}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
 }
-
 /* --------------------------------- LAYOUT -------------------------------- */
 .container{
   width:100%;
@@ -89,7 +88,15 @@ section{position:relative;}
   margin-inline:auto;
   padding-inline:24px;
 }
-.section-pad{padding-block:110px;}
+.section-pad{
+    padding:60px 0;
+}
+
+@media(max-width:768px){
+    .section-pad{
+        padding:35px 0;
+    }
+}
 .alt-section{background:var(--alt-bg);}
 
 .eyebrow{
@@ -507,7 +514,12 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
 
 /* --------------------------------- CARD GRIDS ----------------------------- */
 .grid{display:grid;gap:30px;}
-.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(380px,430px));
+    justify-content:center;
+    gap:35px;
+}
 .grid-4{grid-template-columns:repeat(4,1fr);}
 @media (max-width:980px){.grid-3{grid-template-columns:repeat(2,1fr);}.grid-4{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:600px){.grid-3,.grid-4{grid-template-columns:1fr;}}
@@ -635,14 +647,74 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
 .footer-col a:hover{color:var(--gold);padding-left:4px;}
 .footer-col .contact-line{display:flex;gap:10px;color:var(--text-body);font-size:0.9rem;margin-bottom:14px;align-items:flex-start;}
 .footer-col .contact-line i{color:var(--gold-light);margin-top:3px;}
-.social-row{display:flex;gap:12px;margin-top:20px;}
-.social-row a{
-  width:40px;height:40px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--glass-border);
-  transition:background .35s, border-color .35s, transform .35s;
+.social-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-top:20px;
 }
-.social-row a:hover{background:var(--gold);border-color:var(--gold);color:var(--black);transform:translateY(-4px);}
+.social-row > a{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--glass-border);
+    transition:background .35s, border-color .35s, transform .35s;
+}
+
+.social-row > a:hover{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--black);
+    transform:translateY(-4px);
+}
+.social-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.social-row > a,
+.social-row .insta-btn{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid rgba(201,154,75,.3);
+
+    color:#333;
+
+    background:#fff;
+
+    transition:.3s ease;
+
+}
+
+.social-row > a:hover,
+.social-row .insta-btn:hover{
+
+    background:#C99A4B;
+
+    color:#fff;
+
+    transform:translateY(-5px);
+
+}
 .footer-bottom{
   border-top:1px solid rgba(201,154,75,0.18);
   color:var(--text-body);
@@ -676,6 +748,488 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
     opacity:1;
 }
 
+
+/*=========================================
+ Premium Instagram Card
+=========================================*/
+
+.insta-dropdown{
+    position:relative;
+}
+
+.insta-card{
+
+    position:absolute;
+
+    bottom:70px;
+
+    left:50%;
+
+    transform:translateX(-50%) translateY(15px);
+
+    width:280px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+    border:1px solid rgba(201,154,75,.15);
+
+    overflow:hidden;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:999;
+
+}
+
+.insta-dropdown:hover .insta-card{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateX(-50%) translateY(0);
+
+}
+
+.insta-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 18px;
+
+    font-weight:600;
+
+    border-bottom:1px solid #eee;
+
+    color:#C99A4B;
+
+}
+
+.insta-account{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:15px;
+
+    width:100%;
+
+    height:auto;
+
+    padding:15px 18px;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    border:none;
+
+    border-radius:0;
+
+    background:transparent;
+
+    color:#333;
+
+}
+
+.insta-account:hover{
+
+    background:#faf7f2;
+
+}
+
+.insta-account-icon{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:#C99A4B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.insta-account-icon i{
+
+    color:#fff;
+
+    font-size:20px;
+
+}
+
+.insta-account-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.insta-account-info h4{
+
+    margin:0;
+
+    font-size:15px;
+
+    color:#222;
+
+    font-weight:600;
+
+}
+
+.insta-account-info p{
+
+    margin:0;
+
+    font-size:15px;
+
+    color:#666;
+
+    font-weight:500;
+
+}
+
+/* Arrow */
+
+.insta-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:50%;
+
+    transform:translateX(-50%) rotate(45deg);
+
+    width:16px;
+
+    height:16px;
+
+    background:#fff;
+
+}
+
+/*=========================================
+ Premium Facebook Card
+=========================================*/
+
+.facebook-dropdown{
+    position:relative;
+}
+
+.facebook-card{
+
+    position:absolute;
+
+    bottom:55px;
+
+    left:50%;
+
+    transform:translateX(-50%) translateY(15px);
+
+    width:280px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+    border:1px solid rgba(201,154,75,.15);
+
+    overflow:hidden;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:999;
+
+}
+
+.facebook-btn:hover + .facebook-card,
+.facebook-card:hover{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateX(-50%) translateY(0);
+
+}
+
+.facebook-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 18px;
+
+    font-weight:600;
+
+    border-bottom:1px solid #eee;
+
+    color:#C99A4B;
+
+}
+
+.facebook-account{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:15px;
+
+    width:100%;
+
+    padding:15px 18px;
+
+    text-decoration:none;
+
+    color:#333;
+
+    transition:.3s;
+
+}
+
+.facebook-account:hover{
+
+    background:#faf7f2;
+
+}
+
+.facebook-account-icon{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:#C99A4B;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.facebook-account-icon i{
+
+    color:#fff;
+
+    font-size:18px;
+
+}
+
+.facebook-account-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.facebook-account-info p{
+
+    margin:0;
+
+    font-size:15px;
+
+    color:#666;
+
+    font-weight:500;
+
+}
+
+.facebook-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:50%;
+
+    transform:translateX(-50%) rotate(45deg);
+
+    width:16px;
+
+    height:16px;
+
+    background:#fff;
+
+}
+.facebook-btn{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#fff;
+
+    border:1px solid rgba(201,154,75,.3);
+
+    color:#333;
+
+    transition:.3s ease;
+
+}
+
+.facebook-btn:hover{
+
+    background:#C99A4B;
+
+    color:#fff;
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================================
+ Premium LinkedIn Card
+=========================================*/
+.linkedin-dropdown{
+    position:relative;
+}
+.linkedin-btn{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+    border:1px solid rgba(201,154,75,.3);
+    color:#333;
+    transition:.3s ease;
+}
+.linkedin-btn:hover{
+    background:#C99A4B;
+    color:#fff;
+    transform:translateY(-5px);
+}
+.linkedin-card{
+    position:absolute;
+    bottom:55px;
+    left:50%;
+    transform:translateX(-50%) translateY(15px);
+    width:280px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+    border:1px solid rgba(201,154,75,.15);
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transition:.35s ease;
+    z-index:999;
+}
+.linkedin-btn:hover + .linkedin-card,
+.linkedin-card:hover{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(-50%) translateY(0);
+}
+.linkedin-header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 18px;
+    color:#C99A4B;
+    font-weight:600;
+    border-bottom:1px solid #eee;
+}
+.linkedin-account{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    width:100%;
+    padding:15px 18px;
+    text-decoration:none;
+    color:#333;
+    transition:.3s;
+}
+.linkedin-account:hover{
+    background:#faf7f2;
+}
+.linkedin-account-icon{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:#C99A4B;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+.linkedin-account-icon i{
+    color:#fff;
+    font-size:18px;
+}
+.linkedin-account-info p{
+    margin:0;
+    font-size:15px;
+    color:#666;
+    font-weight:500;
+}
+.linkedin-card::after{
+    content:"";
+    position:absolute;
+    bottom:-8px;
+    left:50%;
+    transform:translateX(-50%) rotate(45deg);
+    width:16px;
+    height:16px;
+    background:#fff;
+}
 /* --------------------------------- FLOATING BUTTONS -------------------------- */
 .float-stack{position:fixed;right:26px;bottom:26px;display:flex;flex-direction:column;gap:14px;z-index:850;}
 .float-btn{
@@ -693,7 +1247,6 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
   opacity:0;pointer-events:none;transform:translateY(10px);
 }
 .totop-btn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
-
 /* --------------------------------- SCROLL REVEAL ------------------------------ */
 [data-reveal]{opacity:0;transition:opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease);}
 [data-reveal="up"]{transform:translateY(50px);}
@@ -702,66 +1255,49 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
 [data-reveal="scale"]{transform:scale(0.85);}
 [data-reveal="blur"]{filter:blur(14px);}
 [data-reveal].in-view{opacity:1;transform:translate(0,0) scale(1);filter:blur(0);}
-
 /* stagger helper */
 [data-reveal].in-view{transition-delay:var(--delay,0s);}
-
 /* --------------------------------- PARALLAX ----------------------------------- */
 .parallax-layer{will-change:transform;}
-
 /* --------------------------------- MISC --------------------------------------- */
 .skip-link{
   position:absolute;left:-999px;top:0;background:var(--gold);color:var(--black);padding:12px 20px;z-index:1200;border-radius:0 0 8px 0;
 }
 .skip-link:focus{left:0;}
-
 ::selection{background:var(--gold);color:var(--black);}
-
 .badge-pill{
   display:inline-flex;align-items:center;gap:8px;
   padding:8px 16px;border-radius:50px;font-size:0.8rem;font-family:var(--font-heading);
   background:rgba(233,198,128,0.08);border:1px solid var(--glass-border);color:var(--gold-light);
 }
-
 /* =====================================================
    MOBILE HEADER RESPONSIVE
 ===================================================== */
-
 @media screen and (max-width:768px){
-
     /* Hide Desktop Navigation */
     .nav-desktop{
-        display:none !important;
-        
+        display:none !important;   
     }
-
     /* Show Hamburger */
     .hamburger{
         display:block !important;
         width:44px;
         height:34px;
     }
-
     .hamburger span{
-
     height:3px;
-
     border-radius:20px;
-
 }
-
     /* Header Layout */
     .site-header{
         height:72px;
     }
-
     .site-header .container{
         display:flex;
         justify-content:space-between;
         align-items:center;
         padding:0 18px;
     }
-
     /* Logo */
     .brand{
         display:flex;
@@ -769,120 +1305,70 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
         gap:10px;
         flex-shrink:0;
     }
-
     .brand img{
         padding-top: 10px;
         width:120px;
         height:auto;
     }
-
     .brand-name{
         font-size:30px;
         line-height:1;
     }
-
     /* Mobile Menu */
     .nav-mobile{
         width:280px;
     }
-
 }
 /* ==========================
    Mobile Menu Header
 ========================== */
-
 .mobile-menu-header{
-
     display:flex;
-
     align-items:center;
-
     gap:16px;
-
     padding-bottom:25px;
-
     margin-bottom:25px;
-
     border-bottom:1px solid rgba(201,154,75,.15);
-
 }
-
 .mobile-menu-header img{
-
     width: 200px;;
-
     height:auto;
-
 }
-
 .mobile-menu-header h3{
-
     font-family:var(--font-heading);
-
     font-size:26px;
-
     font-weight:700;
-
     color:var(--text-heading);
-
 }
-
 .mobile-menu-header h3 span{
-
     color:var(--gold);
-
 }
-
 /* ==========================
    Mobile Menu Close Button
 ========================== */
-
 .menu-close{
-
     position:absolute;
-
     top:25px;
-
     right:25px;
-
     width:44px;
-
     height:44px;
-
     border-radius:50%;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     background:rgba(201,154,75,.12);
-
     border:1px solid rgba(201,154,75,.25);
-
     color:var(--gold);
-
     font-size:22px;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
-
 .menu-close:hover{
-
     background:var(--gold);
-
     color:#fff;
-
     transform:rotate(90deg);
-
 }
-
 /* ===== Mobile Menu Close Button ===== */
-
 .menu-close{
     position:absolute;
     top:20px;
@@ -900,100 +1386,57 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
     cursor:pointer;
     transition:.3s ease;
 }
-
 .menu-close:hover{
     background:#C99A4B;
     color:#fff;
     transform:rotate(90deg);
 }
-
-
 /* Leadership */
-
 .leader-img{
-
 width:140px;
 height:140px;
-
 border-radius:50%;
-
 object-fit:cover;
-
 display:block;
-
 margin:0 auto 20px;
-
 border:4px solid var(--gold);
-
 box-shadow:0 15px 35px rgba(0,0,0,.12);
-
 }
-
 .leader-role{
-
 display:block;
-
 margin-bottom:18px;
-
 color:var(--gold);
-
 font-weight:600;
-
 letter-spacing:.5px;
-
 }
-
 .leader-social{
-
 display:flex;
-
 justify-content:center;
-
 gap:14px;
-
 margin-top:20px;
-
 }
-
 .leader-social a{
-
 width:42px;
 height:42px;
-
 border-radius:50%;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 background:#fff;
-
 color:var(--gold);
-
 transition:.35s;
-
 }
-
 .leader-social a:hover{
-
 background:var(--gold);
-
 color:#fff;
-
 transform:translateY(-5px);
-
 }
-
 /* Timeline */
-
 .timeline{
 max-width:900px;
 margin:auto;
 position:relative;
 }
-
 .timeline::before{
 content:"";
 position:absolute;
@@ -1004,14 +1447,12 @@ width:3px;
 background:var(--gold);
 transform:translateX(-50%);
 }
-
 .timeline-item{
 display:flex;
 justify-content:space-between;
 margin:60px 0;
 position:relative;
 }
-
 .timeline-year{
 width:120px;
 height:120px;
@@ -1026,7 +1467,6 @@ font-size:20px;
 box-shadow:0 15px 40px rgba(0,0,0,.15);
 z-index:2;
 }
-
 .timeline-content{
 width:70%;
 background:#fff;
@@ -1034,64 +1474,43 @@ padding:30px;
 border-radius:18px;
 box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
-
 .timeline-content h3{
 margin-bottom:10px;
 }
-
 .counter{
 font-size:50px;
 font-weight:800;
 color:var(--gold);
 margin-bottom:10px;
 }
-
 @media(max-width:768px){
-
 .timeline::before{
 display:none;
 }
-
 .timeline-item{
 flex-direction:column;
 align-items:center;
 text-align:center;
 }
-
 .timeline-content{
 width:100%;
 margin-top:20px;
 }
-
 }
-
 /* =============================
 Map
 ============================= */
-
 .map-box{
-
 height:420px;
-
 border-radius:20px;
-
 overflow:hidden;
-
 box-shadow:0 20px 50px rgba(0,0,0,.12);
-
 }
-
 .map-box iframe{
-
 width:100%;
-
 height:100%;
-
 border:none;
-
 }
-
-
 /* =============================
 Social
 ============================= */
@@ -1115,9 +1534,44 @@ transform:translateY(-10px);
     overflow:hidden;
     box-shadow:0 15px 40px rgba(0,0,0,.15);
 }
-
 .map-box iframe{
     width:100%;
     height:100%;
     border:0;
+}
+
+/* ==========================================
+   WHY CHOOSE + TESTIMONIALS + STUDENT SUCCESS
+========================================== */
+
+.why-grid,
+.testimonial-grid,
+.student-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.why-grid .info-card,
+.testimonial-grid .testi-card,
+.student-grid .testi-card{
+    width:100%;
+}
+
+/* Tablet */
+@media (max-width:992px){
+    .why-grid,
+    .testimonial-grid,
+    .student-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width:768px){
+    .why-grid,
+    .testimonial-grid,
+    .student-grid{
+        grid-template-columns:1fr;
+    }
 }
