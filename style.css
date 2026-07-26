@@ -765,11 +765,7 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
     transition:.35s ease;
     z-index:999;
 }
-.insta-dropdown:hover .insta-card{
-    opacity:1;
-    visibility:visible;
-    transform:translateX(-50%) translateY(0);
-}
+
 .insta-header{
     display:flex;
     align-items:center;
@@ -860,12 +856,7 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
     transition:.35s ease;
     z-index:999;
 }
-.facebook-btn:hover + .facebook-card,
-.facebook-card:hover{
-    opacity:1;
-    visibility:visible;
-    transform:translateX(-50%) translateY(0);
-}
+
 .facebook-header{
     display:flex;
     align-items:center;
@@ -979,12 +970,7 @@ body.menu-open{overflow:hidden;height:100dvh;touch-action:none;}
     transition:.35s ease;
     z-index:999;
 }
-.linkedin-btn:hover + .linkedin-card,
-.linkedin-card:hover{
-    opacity:1;
-    visibility:visible;
-    transform:translateX(-50%) translateY(0);
-}
+
 .linkedin-header{
     display:flex;
     align-items:center;
@@ -1426,39 +1412,11 @@ transform:translateY(-10px);
         justify-content:center;
     }
 }
-/* ==========================================
-   Mobile Social Popup
-========================================== */
-@media (max-width:768px){
-    .facebook-card,
-    .insta-card,
-    .linkedin-card{
-        position:fixed;
-        left:50%;
-        top:50%;
-        bottom:auto;
-        right:auto;
-        transform:translate(-50%,-50%) scale(.95);
-        width:90%;
-        max-width:320px;
-        opacity:0;
-        visibility:hidden;
-        transition:.3s;
-        z-index:9999;
-    }
-    .facebook-card.show,
-    .insta-card.show,
-    .linkedin-card.show{
-        opacity:1;
-        visibility:visible;
-        transform:translate(-50%,-50%) scale(1);
-    }
-    .facebook-card::after,
-    .insta-card::after,
-    .linkedin-card::after{
-        display:none;
-    }
-}
+
+/* ===========================
+   SOCIAL POPUP
+=========================== */
+
 .popup-overlay{
     position:fixed;
     inset:0;
@@ -1468,7 +1426,60 @@ transform:translateY(-10px);
     transition:.3s;
     z-index:9998;
 }
+
 .popup-overlay.show{
     opacity:1;
     visibility:visible;
+}
+
+.facebook-card,
+.insta-card,
+.linkedin-card{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%) scale(.95);
+
+    width:90%;
+    max-width:340px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    border:1px solid rgba(201,154,75,.15);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
+
+    overflow:hidden;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+
+.facebook-card.show,
+.insta-card.show,
+.linkedin-card.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
+.facebook-card::after,
+.insta-card::after,
+.linkedin-card::after{
+
+    display:none;
+
 }

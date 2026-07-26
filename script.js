@@ -232,4 +232,95 @@
     updateParallax();
   }
 
+/* ===========================
+   SOCIAL POPUP
+=========================== */
+
+const overlay=document.querySelector(".popup-overlay");
+
+const popups={
+
+facebook:document.querySelector(".facebook-card"),
+instagram:document.querySelector(".insta-card"),
+linkedin:document.querySelector(".linkedin-card")
+
+};
+
+function closePopups(){
+
+Object.values(popups).forEach(p=>{
+
+if(p)p.classList.remove("show");
+
+});
+
+if(overlay){
+
+overlay.classList.remove("show");
+
+}
+
+}
+
+function openPopup(card){
+
+closePopups();
+
+card.classList.add("show");
+
+overlay.classList.add("show");
+
+}
+
+document.querySelector(".facebook-btn")?.addEventListener("click",function(e){
+
+e.preventDefault();
+
+openPopup(popups.facebook);
+
+});
+
+document.querySelector(".insta-btn")?.addEventListener("click",function(e){
+
+e.preventDefault();
+
+openPopup(popups.instagram);
+
+});
+
+document.querySelector(".linkedin-btn")?.addEventListener("click",function(e){
+
+e.preventDefault();
+
+openPopup(popups.linkedin);
+
+});
+
+overlay?.addEventListener("click",closePopups);
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="Escape"){
+
+closePopups();
+
+}
+
+});
+
+document.querySelectorAll(".facebook-card,.insta-card,.linkedin-card")
+.forEach(card=>{
+card.addEventListener("click",function(e){
+e.stopPropagation();
+});
+});
+
+
+document.querySelectorAll(".facebook-account,.insta-account,.linkedin-account")
+.forEach(link=>{
+link.addEventListener("click",function(){
+closePopups();
+});
+});
+
 })();
